@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /TravelManagement/public/
+
+# Redirect to public directory
+RewriteCond %{REQUEST_URI} !^/TravelManagement/public/
+RewriteRule ^(.*)$ /TravelManagement/public/$1 [L]
+
+# Front controller
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
